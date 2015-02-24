@@ -1,7 +1,7 @@
 
 ;(function(){
 
-  Backbone.todoModel = Backbone.Model.extend({
+  Parse.todoModel = Parse.Collection.extend({
 
 
 

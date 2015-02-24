@@ -54,7 +54,13 @@
                 description: this.el.querySelector('input').value,
                 user: Parse.User.current()
             }
-            this.collection.create(data);
+            var task = new Parse.Task(data);
+            var acl = new Parse.ACL(Parse.user.current());
+            var self = this;
+            task.setACL(acl);
+            task.save().then(function(){
+                self.collection.fetch()
+            });
         },
         getModelAssociatedWithEvent: function(e){
             var el = e.target,
