@@ -46,7 +46,11 @@
             "submit .tasks": "addTask",
             "change input[name='urgent']": "toggleUrgent",
             "change input[name='isDone']": "toggleIsDone",
-            "keyup .description": "setDescription"
+            "keyup .description": "setDescription",
+            "click .logoutButton":"logout"
+        },
+        logout: function(){
+            Parse.user.logout
         },
         addTask: function(e){
             e.preventDefault();
