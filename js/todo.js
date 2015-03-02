@@ -47,7 +47,8 @@
             "change input[name='urgent']": "toggleUrgent",
             "change input[name='isDone']": "toggleIsDone",
             "keyup .description": "setDescription",
-            "click .logoutButton":"logout"
+            "click .logoutButton":"logout",
+            "click .delete-button":"deleteTask"
         },
         logout: function(){
             Parse.user.logout
@@ -59,7 +60,7 @@
                 user: Parse.User.current()
             }
             var task = new Parse.Task(data);
-            var acl = new Parse.ACL(Parse.user.current());
+            var acl = new Parse.ACL(Parse.User.current());
             var self = this;
             task.setACL(acl);
             task.save().then(function(){
@@ -99,6 +100,17 @@
                 m.set('description', e.target.innerText);
                 m.save();
             }
+        },
+        deleteTask: function(e){
+        e.preventDefault()
+        console.log(e.target)
+        var el = e.target
+        var dt = $(el).closest('li').attr('id')
+        console.log(dt)
+        var dm = this.collection.get(dt)
+        this.collection.remove(dm)
+        dm.destroy()
+
         }
     })
 

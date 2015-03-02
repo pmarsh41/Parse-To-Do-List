@@ -81,7 +81,7 @@ body {
         background-color: #efefef;
         padding: 1em;
         form {
-            width: : 100%;
+            width: 100%;
             input {
                 width: 100%;
                 height: 100%;
@@ -110,7 +110,8 @@ body {
                 display: inline-block;
                 padding: 0px;
                 button {
-                    width: 100% height: 30px;
+                    width: 100%;
+                    height: 30px;
                     margin: 0px;
                     margin-right: 3%;
                     border-radius: 10px;
@@ -121,9 +122,12 @@ body {
                 width: 88%;
                 display: inline-block;
             }
-            .delete-button {
-                float: right;
-            }
+
         }
     }
+    .delete-button {
+                float: right;
+                color: red;
+                cursor: pointer;
+}
 }
